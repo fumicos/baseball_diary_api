@@ -1,24 +1,46 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Users table
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|image|string||
+|bio|text||
+|email|string|null: false, unique: true|
+|team|references|null: false, foreign_key: true|
 
-* Ruby version
+### Index
 
-* System dependencies
+- add_index: :users, :name
 
-* Configuration
+## Association
 
-* Database creation
+- belongs_to :team
+- has_many :posts
 
-* Database initialization
+## Teams table
 
-* How to run the test suite
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Index
 
-* Deployment instructions
+- add_index: :teams, :name
 
-* ...
+### Association
+
+- has_many :users
+
+## Posts table
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|image|string|null: true|
+|user|references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
