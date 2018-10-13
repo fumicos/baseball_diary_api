@@ -4,10 +4,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: false|
-|image|string|foreign_key: false|
-|bio|text|foreign_key: false|
-|email|string|null: false, unique: true, foreign_key: false|
+|name|string|null: false|
+|image|string||
+|bio|text||
+|email|string|null: false, unique: true|
 |team|references|null: false, foreign_key: true|
 
 ### Index
@@ -23,7 +23,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: false|
+|name|string|null: false|
 
 ### Index
 
@@ -37,8 +37,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false, foreign_key: false|
-|image|string|null: true, foreign_key: false|
+|text|text|null: false|
+|image|string|null: true|
 |user|references|null: false, foreign_key: true|
 
 ### Association
